@@ -88,7 +88,7 @@ function search(event) {
 let searchForm = document.querySelector("#weather-form");
 searchForm.addEventListener("submit", search);
 
-let celsiusTemp = 14;
+let celsiusTemp = `${temperature}`;
 let temperatureElement = document.querySelector("h2");
 
 function displayCelsius() {
