@@ -96,7 +96,7 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(.celTemp);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
 
 function displayFahrenheitTemperature(event) {
@@ -106,7 +106,7 @@ function displayFahrenheitTemperature(event) {
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(.farenTemp);
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
 }
 
 function displayWeatherCondition(response) {
