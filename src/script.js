@@ -91,18 +91,23 @@ searchForm.addEventListener("submit", search);
 let celsiusTemp = `${temperature}`;
 let temperatureElement = document.querySelector("h2");
 
-function displayCelsius() {
-  temperatureElement.innerHTML = celsiusTemp;
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(.celTemp);
 }
-let celsiusElement = document.querySelector(".celTemp");
-celsiusElement.addEventListener("click", displayCelsius);
 
-function displayFahrenheit() {
-  temperatureElement.innerHTML = (celsiusTemp * 9) / 5 + 32;
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(.farenTemp);
 }
-let fahrenheitElement = document.querySelector(".farenTemp");
-fahrenheitElement.addEventListener("click", displayFahrenheit);
-
 
 function displayWeatherCondition(response) {
   document.querySelector("#weather").innerHTML = response.data.name;
