@@ -4,10 +4,6 @@ let h4 = document.querySelector("h4");
 
 let dateDay = now.getDate();
 
-let hours = now.getHours();
-
-let minutes = now.getMinutes();
-
 function formatDate(date) {
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"];
   let day = days[now.getDay()];
