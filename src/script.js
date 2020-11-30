@@ -62,41 +62,10 @@ function showTemperature(response) {
   console.log(response.data.main.temp);
 }
 
-function dispalyForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 6; index++) {
-    forecast = response.data.list[index];
-    forecastElement.innerHTML += `
-    <div class="col-2">
-      <h3>
-        ${formatHours(forecast.dt * 1000)}
-      </h3>
-      <img
-        src="http://openweathermap.org/img/wn/${
-          forecast.weather[0].icon
-        }@2x.png"
-      />
-      <div class="weather-forecast-temperature">
-        <strong>
-          ${Math.round(forecast.main.temp_max)}°
-        </strong>
-        ${Math.round(forecast.main.temp_min)}°
-      </div>
-    </div>
-  `;
-  }
-}
-
 function searchLocation(position) {
   let apiKey = "fb292de11e071a00e499cdd544b36098";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayWeatherCondition);
-
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayForecast);
 }
 
 function search(event) {
@@ -116,6 +85,13 @@ function getCurrentLocation(event) {
 
 let searchForm = document.querySelector("#weather-form");
 searchForm.addEventListener("submit", search);
+
+function showPosition(position) {
+  let h1 = document.querySelector("h1 #weather");
+  h1.innerHTML = `${city}`;
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+}
 
 let celsiusTemp = `${temperature}`;
 
@@ -146,13 +122,6 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
-}
-
-function showPosition(position) {
-  let h1 = document.querySelector("h1 #weather");
-  h1.innerHTML = `${city}`;
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
 }
 
 let currentLocationButton = document.querySelector("#location-button");
