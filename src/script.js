@@ -51,6 +51,22 @@ function formatHours(timestamp) {
 
 console.log(formatDate(now));
 
+function showTemperature(response) {
+  console.log(response.data);
+  let temperature = Math.round(response.data.main.temp);
+  let temperatureElement = document.querySelector("h2");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+
+
+  temperatureElement.innerHTML = `${temperature}°`;
+  console.log(response.data.main.temp);
+}
+
 function search(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#weather");
@@ -148,23 +164,6 @@ function showPosition(position) {
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 searchCity("New York");
-
-
-function showTemperature(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let temperatureElement = document.querySelector("h2");
-  let cityElement = document.querySelector("#city");
-  let descriptionElement = document.querySelector("#description");
-  let humidityElement = document.querySelector("#humidity");
-  let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
-  let iconElement = document.querySelector("#icon");
-
-
-  temperatureElement.innerHTML = `${temperature}°`;
-  console.log(response.data.main.temp);
-}
 
 function defaultCity(city) {
   let apiKey = "fb292de11e071a00e499cdd544b36098";
