@@ -37,6 +37,13 @@ function formatDate(date) {
 
 console.log(formatDate(now));
 
+function displayIcon() {
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src", 
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+}
+
 function search(event) {
   event.preventDefault();
   let cityElement = document.querySelector("#weather");
@@ -48,7 +55,7 @@ let searchForm = document.querySelector("#weather-form");
 searchForm.addEventListener("submit", search);
 
 let celsiusTemp = 14;
-let temperatureElement = document.querySelector("h2");
+let temperatureElement = document.querySelector("h3");
 
 function displayCelsius() {
   temperatureElement.innerHTML = celsiusTemp;
@@ -61,8 +68,6 @@ function displayFahrenheit() {
 }
 let fahrenheitElement = document.querySelector(".farenTemp");
 fahrenheitElement.addEventListener("click", displayFahrenheit);
-
-let iconElement = document.querySelector("#icon")
 
 function displayWeatherCondition(response) {
   document.querySelector("#weather").innerHTML = response.data.name;
@@ -113,7 +118,7 @@ function defaultCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
 }
-defaultCity("Sterling Heights");
+defaultCity("New York");
 
 function searchCity(event) {
   event.preventDefault();
@@ -123,3 +128,5 @@ function searchCity(event) {
 
 let submit = document.querySelector("#search");
 submit.addEventListener("click", searchCity);
+
+let iconElement = document.querySelector("#icon")
