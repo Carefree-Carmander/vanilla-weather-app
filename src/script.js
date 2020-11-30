@@ -174,6 +174,7 @@ function showPosition(position) {
 
 let currentLocationButton = document.querySelector("#location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+searchCity("New York");
 
 
 function showTemperature(response) {
