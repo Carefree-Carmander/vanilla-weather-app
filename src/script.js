@@ -110,6 +110,14 @@ function search(event) {
   cityElement.innerHTML = cityInput.value;
 }
 
+let submit = document.querySelector("#search");
+submit.addEventListener("click", searchCity);
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
 let searchForm = document.querySelector("#weather-form");
 searchForm.addEventListener("submit", search);
 
@@ -148,11 +156,6 @@ function displayWeatherCondition(response) {
     response.data.weather[0].main;
 }
 
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
-
 function showPosition(position) {
   let h1 = document.querySelector("h1 #weather");
   h1.innerHTML = `${city}`;
@@ -177,8 +180,7 @@ function searchCity(event) {
   defaultCity(city);
 }
 
-let submit = document.querySelector("#search");
-submit.addEventListener("click", searchCity);
+
 
 
 
