@@ -28,7 +28,7 @@ function formatDate(date) {
 
   let formatDate = `${day}, ${month} ${dateDay}, ${hours}:${minutes}`;
 
-  return formatDate;
+  
 }
 
 function formatHours(timestamp) {
