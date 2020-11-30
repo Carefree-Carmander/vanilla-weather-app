@@ -62,6 +62,7 @@ function displayFahrenheit() {
 let fahrenheitElement = document.querySelector(".farenTemp");
 fahrenheitElement.addEventListener("click", displayFahrenheit);
 
+let iconElement = document.querySelector("#icon")
 
 function displayWeatherCondition(response) {
   document.querySelector("#weather").innerHTML = response.data.name;
@@ -102,7 +103,7 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 function showTemperature(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
-  let temperatureElement = document.querySelector("h2");
+  let temperatureElement = document.querySelector("h3");
   temperatureElement.innerHTML = `${temperature}°`;
   console.log(response.data.main.temp);
 }
