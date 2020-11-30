@@ -41,6 +41,8 @@ function formatHours(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+
+  return `${hours}:${minutes}`;
 }
 
 console.log(formatDate(now));
