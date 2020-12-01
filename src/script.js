@@ -102,27 +102,31 @@ function showTemperature(response) {
 function displayCelsius(event) {
   event.preventDefault();
 
-  celTemp.classList.add("active");
-  farenTemp.classList.remove("active");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 
+  let celsiusTemp = (fahrenTemp - 32) * 5 / 9;
   let temperatureElement = document.querySelector("#temp");
   temperatureElement.innerHTML = Math.round(celsiusTemp);
-  let celsiusElement = document.querySelector("#celTemp");
-  celsiusElement.addEventListener("click", displayCelsius);
 }
 
 function displayFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temp");
   
-  celTemp.classList.remove("active");
-  farenTemp.classList.add("active");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 
-  let fahrenTemp = (celsiusTemp * 9) / 5 + 32;
-  fahrenheitElement.addEventListener("click", displayFahrenheit); 
+  temperatureElement.innerHTML = Math.round(fahrenTemp);
 }
 
 let fahrenTemp = null;
+
+let fahrenheitLink  = document.querySelector("#farenTemp");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink  = document.querySelector("#celTemp");
+celsiusLink.addEventListener("click", displayCelsius);
 
 function defaultCity(city) {
   let apiKey = "fb292de11e071a00e499cdd544b36098";
