@@ -18,3 +18,13 @@ div .card-text {
 div img {
   margin: 0 top;
 }
+
+body {
+  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+  background-repeat:no-repeat;
+  background-size:1900px 1000px;
+}
+
+div .row {
+  margin-top: 40px;
+}
